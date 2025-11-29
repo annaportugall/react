@@ -7,7 +7,7 @@ function Conversor() {
   const [destino, setDestino] = useState("USD");
   const [resultado, setResultado] = useState(null);
 
-  
+  // taxas aproximadas
   const taxas = {
     BRL: { USD: 0.19, EUR: 0.18 },
     USD: { BRL: 5.30, EUR: 0.93 },
@@ -16,7 +16,7 @@ function Conversor() {
 
   const calcular = () => {
     if (origem === destino) {
-      setResultado(valor); a
+      setResultado(valor); // mesma moeda
       return;
     }
 
