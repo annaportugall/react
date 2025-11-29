@@ -1,30 +1,49 @@
 import { useState } from 'react';
 import './App.css';
 
-function BotaoFavoritar({ contagemInicial = 150 }) {
-    const [contagemFavoritos, setContagemFavoritos] = useState(contagemInicial);
-    const [favoritado, setFavoritado] = useState(false);
+function MedidorFelicidade() {
+    const [nivelFelicidade, setNivelFelicidade] = useState(0);
 
 
-    const handleClick = () => {
-        setFavoritado(prev => !prev);
+    const emojisFelicidade = [
+        '😐',
+        '🙂',
+        '😊',
+        '😁',
+        '🤩',
+    ];
 
 
-        setContagemFavoritos(prev => prev + (favoritado ? -1 : 1));
+    const handleClickSorrir = () => {
+        setNivelFelicidade(prev => Math.min(prev + 1, emojisFelicidade.length - 1));
     };
 
 
-    const icone = favoritado ? '⭐️' : '✩'; '🌙'; '🌑'
-    const classeBotao = `botao-favoritar ${favoritado ? 'favoritado' : ''}`;
+    const emojiAtual = emojisFelicidade[nivelFelicidade];
+    const proximoNivel = nivelFelicidade + 1;
 
 
     return (
-        <div className="container-favoritar">
-            <button className={classeBotao} onClick={handleClick}>
-                {icone} {favoritado ? 'Desfavoritar' : 'Favoritar'}
-            </button>
-            <p>Total de Favoritos: **{contagemFavoritos}**</p>
+        <div className="container-felicidade">
+            <h3>Medidor de Felicidade</h3>
+            <div style={{ fontSize: '4em' }}>
+                {emojiAtual}
+            </div>
+
+
+            <p>Nível de Felicidade: **{nivelFelicidade}**</p>
+
+
+            {nivelFelicidade < emojisFelicidade.length - 1 ? (
+                <button onClick={handleClickSorrir}>
+                    Sorrir (Clique para Nível {proximoNivel})
+                </button>
+            ) : (
+                <p>🎉 **Felicidade Máxima!** 🎉</p>
+            )}
         </div>
     );
 }
-export default BotaoFavoritar
+
+
+export default MedidorFelicidade
