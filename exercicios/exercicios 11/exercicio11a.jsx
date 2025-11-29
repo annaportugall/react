@@ -55,9 +55,9 @@ function Formulario() {
 
       <div>
         <h3>Dados preenchidos</h3>
-        <p><strong>Nome: </strong>{dados.nome}</p>
-        <p><strong>Email: </strong>{dados.email}</p>
-        <p><strong>Idade: </strong>{dados.idade}</p>
+        <p><strong>Nome:{dados.nome} </strong></p>
+        <p><strong>Email: {dados.email}</strong></p>
+        <p><strong>Idade: {dados.idade} </strong></p>
       </div>
     </div>
   );
