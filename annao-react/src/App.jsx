@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import './App.css'
 
 
@@ -27,7 +27,7 @@ function Calculadora() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div>
       <h1>Calculadora</h1>
 
       <select value={operacao} onChange={(e) => setOperacao(e.target.value)}>
